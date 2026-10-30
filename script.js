@@ -1,9 +1,12 @@
+
 const button = document.getElementById("helloButton");
 const message = document.getElementById("message");
 
-button.addEventListener("click", function () {
-    message.textContent = "You just made your website interactive!";
-});
+if (button && message) {
+    button.addEventListener("click", function () {
+        message.textContent = "You just made your website interactive!";
+    });
+}
 
 /* CancerAware — cursor glitter trail */
 
@@ -19,7 +22,6 @@ let lastGlitterTime = 0;
 document.addEventListener("mousemove", function (event) {
     const now = Date.now();
 
-    // Limit particle creation for smoother performance
     if (now - lastGlitterTime < 35) return;
     lastGlitterTime = now;
 
@@ -35,7 +37,6 @@ document.addEventListener("mousemove", function (event) {
 
     document.body.appendChild(glitter);
 
-    // Remove each particle after its animation
     setTimeout(function () {
         glitter.remove();
     }, 800);
